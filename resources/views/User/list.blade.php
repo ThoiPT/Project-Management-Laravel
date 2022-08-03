@@ -36,7 +36,11 @@
                                                             <img style="max-width: 100px" class="img-radius" src="/avatar_upload/{{$item->avatar}}" alt="Chưa có ảnh đại diện">
                                                         </span>
                                                     </td>
-                                                    <td>{{$item->userCode}}</td>
+                                                    @if($item->userCode == '')
+                                                        <td>No Code</td>
+                                                    @else
+                                                        <td>{{$item->userCode}}</td>
+                                                    @endif
                                                     <td>{{$item->name}}</td>
                                                     <td>{{$item->department->departmentName ?? 'None'}}</td>
                                                     <td>{{$item->position->positionName ?? 'None'}}</td>

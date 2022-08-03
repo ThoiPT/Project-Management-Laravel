@@ -57,9 +57,11 @@ class UserController extends Controller
         }
         $request->merge(['avatar' => $avatarName]);
         $create_account = User::create($request->all());
+
         // Hash password
         $create_account->password = Hash::make($request->password);
         $create_account->save();
+
         if($create_account){
             return back()->with('success', 'Đã thêm 1 tài khoản');
         }else{

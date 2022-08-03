@@ -35,7 +35,11 @@
                                                             <img style="max-width: 100px" class="img-radius" src="/avatar_upload/<?php echo e($item->avatar); ?>" alt="Chưa có ảnh đại diện">
                                                         </span>
                                                     </td>
-                                                    <td><?php echo e($item->userCode); ?></td>
+                                                    <?php if($item->userCode == ''): ?>
+                                                        <td>No Code</td>
+                                                    <?php else: ?>
+                                                        <td><?php echo e($item->userCode); ?></td>
+                                                    <?php endif; ?>
                                                     <td><?php echo e($item->name); ?></td>
                                                     <td><?php echo e($item->department->departmentName ?? 'None'); ?></td>
                                                     <td><?php echo e($item->position->positionName ?? 'None'); ?></td>
